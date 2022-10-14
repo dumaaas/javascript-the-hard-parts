@@ -5,11 +5,11 @@
 // Create a function createFunction that creates and returns a function. When that created function is called, it should print "hello". 
 // When you think you completed createFunction, un-comment out those lines in the code and run it to see if it works.
 
-console.log('%cYou can find challenges and its solutions in app.js 🤓', 'font-size: 24px; font-weight: 700; color: magenta')
+console.log('%cYou can find challenges and its solutions in app.js 🤓', 'font-size: 24px; font-weight: 700; color: magenta; padding: 10px; border: 2px solid magenta;')
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
-console.log('%cCHALLENGE 1', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 1', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 console.log('%cDescription: should console.log("hello")', "color:yellow; font-size: 16px")
 
 function createFunction() {
@@ -23,7 +23,7 @@ const function1 = createFunction();
 function1(); // => should console.log('hello');
 
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 
 // CHALLENGE 2
@@ -31,7 +31,7 @@ console.log('-----------------------------------')
 // Create a function createFunctionPrinter that accepts one input and returns a function. When that created function is called, it should 
 // print out the input that was used when the function was created.
 
-console.log('%cCHALLENGE 2', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 2', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function createFunctionPrinter(input) {
   function print() {
@@ -48,14 +48,14 @@ const printHello = createFunctionPrinter('hello');
 printHello(); // => should console.log('hello');
 
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 3
 
 // Examine the code for the outer function. Notice that we are returning a function and that function is using variables that are outside of its scope.
 // Uncomment those lines of code. Try to deduce the output before executing. Now we are going to create a function addByX that returns a function that will add an input by x.
 
-console.log('%cCHALLENGE 3', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 3', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function outer() {
   let counter = 0; // this variable is outside incrementCounter's scope
@@ -110,7 +110,7 @@ console.log('%cDescription: should console.log("9")', "color:yellow; font-size: 
 console.log(addByFour(5)); // => should return 9
 
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 4
 
@@ -118,7 +118,7 @@ console.log('-----------------------------------')
 // call the callback and return that output. If it is called any additional times, instead of calling the callback again it will simply return the 
 // output value from the first time it was called.
 
-console.log('%cCHALLENGE 4', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 4', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function once(func) {
   var counter = 0;
@@ -142,14 +142,14 @@ console.log(onceFunc(10)); // => should log 6
 console.log('%cDescription: should console.log("6")', "color:yellow; font-size: 16px")
 console.log(onceFunc(9001)); // => should log 6
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 5
 
 // Write a function after that takes the number of times the callback needs to be called before being executed as the 
 // first parameter and the callback as the second parameter.
 
-console.log('%cCHALLENGE 5', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 5', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function after(count, func) {
   var counter = 0;
@@ -174,7 +174,7 @@ afterCalled(); // => nothing is printed
 console.log('%cDescription: should console.log("hello")', "color:yellow; font-size: 16px")
 afterCalled(); // => 'hello' is printed
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 6
 
@@ -193,7 +193,7 @@ function delay(func, wait) {
 
 
 const afterDelay = delay(() => {
-  console.log('%cCHALLENGE 6', "color:green; font-size: 20px");
+  console.log('%cCHALLENGE 6', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
   console.log('%cDescription: should console.log("Delayed hello")', "color:yellow; font-size: 16px")
   console.log('Delayed hello')
 }, 3000);
@@ -205,7 +205,7 @@ afterDelay();
 // log the first name to the console. The second time it is invoked, it should log the second name to the console, and so on, until all names have 
 // been called. Once all names have been called, it should log 'Everyone accounted for'.
 
-console.log('%cCHALLENGE 7', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 7', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function rollCall(names) {
   var counter = 0;
@@ -238,7 +238,7 @@ console.log(rollCaller()) // => should log 'Everyone accounted for'
 // will then return a function that behaves exactly like the passed-in function, except for when the password string is passed in as an argument. 
 // When this happens, the returned function will return an object with all previously passed-in arguments as keys, and the corresponding outputs as values.
 
-console.log('%cCHALLENGE 8', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 8', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function saveOutput(func, magicWord) {
   var obj = {};
@@ -255,7 +255,7 @@ function saveOutput(func, magicWord) {
   return returnOutput;
 }
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 const multiplyBy2 = function (num) {
   return num * 2;
@@ -268,7 +268,7 @@ console.log(multBy2AndLog(9)); // => should log 18
 console.log('%cDescription: should console.log({ 2: 4, 9: 18 })', "color:yellow; font-size: 16px")
 console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 9
 
@@ -277,7 +277,7 @@ console.log('-----------------------------------')
 // will return the second element of the array, and so forth. After returning the last element of the array, the next invocation will 
 // return the first element of the array again, and continue on with the second after that, and so forth.
 
-console.log('%cCHALLENGE 9', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 9', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function cycleIterator(array) {
   var counter = 0;
@@ -307,7 +307,7 @@ console.log(getDay()); // => should log 'Fri'
 console.log('%cDescription: should console.log("Sun")', "color:yellow; font-size: 16px")
 console.log(getDay()); // => should log 'Sat'
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 10
 
@@ -315,7 +315,7 @@ console.log('-----------------------------------')
 // defineFirstArg will return a new function that invokes the passed-in function with the passed-in argument as the passed-in function's first argument. 
 // Additional arguments needed by the passed-in function will need to be passed into the returned function.
 
-console.log('%cCHALLENGE 10', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 10', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function defineFirstArg(func, arg) {
   function passedFunction(secondArg) {
@@ -333,7 +333,7 @@ console.log(subFrom20(5)); // => should log 15
 console.log('%cDescription: should console.log("-1")', "color:yellow; font-size: 16px")
 console.log(subFrom20(21)); // => should log -1
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 11
 
@@ -341,7 +341,7 @@ console.log('-----------------------------------')
 // the passed-in function accepts, and return an object with a date key that contains a timestamp with the time of invocation, and an 
 // output key that contains the result from invoking the passed-in function. HINT: You may need to research how to access information on Date objects.
 
-console.log('%cCHALLENGE 11', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 11', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function dateStamp(func) {
   function returnDateObj(n) {
@@ -362,7 +362,7 @@ console.log(stampedMultBy2(4)); // => should log { date: (today's date), output:
 console.log("%cDescription: should console.log({ date: " + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + ", output: 12 })", "color:yellow; font-size: 16px")
 console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 12
 
@@ -371,7 +371,7 @@ console.log('-----------------------------------')
 // the returned function will return the same string, except all instances of first strings (of saved pairs) will be replaced with their 
 // corresponding second strings (of those saved pairs).
 
-console.log('%cCHALLENGE 12', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 12', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function censor() {
   const obj = {};
@@ -406,7 +406,7 @@ console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // =
 // There's no such thing as private properties on a JavaScript object! But, maybe there are? Implement a function createSecretHolder(secret)
 // which accepts any value as secret and returns an object with ONLY two methods. getSecret() which returns the secret setSecret() which sets the secret
 
-console.log('%cCHALLENGE 13', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 13', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function createSecretHolder(secret) {
   var privateSecret = secret;
@@ -431,13 +431,13 @@ obj.setSecret(15)
 console.log('%cDescription: should console.log("15")', "color:yellow; font-size: 16px")
 console.log(obj.getSecret()) // => returns 15
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 14
 
 // Write a function, callTimes, that returns a new function. The new function should return the number of times it’s been called.
 
-console.log('%cCHALLENGE 14', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 14', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function callTimes() {
   var counter = 0;
@@ -460,7 +460,7 @@ console.log(myNewFunc2()); // => 1
 console.log('%cDescription: should console.log("2")', "color:yellow; font-size: 16px")
 console.log(myNewFunc2()); // => 2
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 15
 
@@ -469,7 +469,7 @@ console.log('-----------------------------------')
 // (the nth invocation), the returned function will return the string 'win'. On every invocation after that, the returned function 
 // returns the string 'pick a number to play again'.
 
-console.log('%cCHALLENGE 15', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 15', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function roulette(num) {
   var counter = 0;
@@ -501,7 +501,7 @@ console.log(play()); // => should log 'pick a number to play again'
 console.log('%cDescription: should console.log("pick a number to play again")', "color:yellow; font-size: 16px")
 console.log(play()); // => should log 'pick a number to play again'
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 16
 // Create a function average that accepts no arguments, and returns a function (that will accept either a number as 
@@ -510,7 +510,7 @@ console.log('-----------------------------------')
 // like any other number). When the returned function is invoked with no arguments, the current average is outputted. 
 // If the returned function is invoked with no arguments before any numbers are passed in, then it should return 0.
 
-console.log('%cCHALLENGE 16', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 16', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function average() {
   var counter = 0;
@@ -544,7 +544,7 @@ console.log(avgSoFar(12)); // => should log 8
 console.log('%cDescription: should console.log("8")', "color:yellow; font-size: 16px")
 console.log(avgSoFar()); // => should log 8
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 17
 
@@ -552,7 +552,7 @@ console.log('-----------------------------------')
 // The returned function should return true if the first elements (of each sub-array) being passed into the callback all yield the corresponding 
 // second elements (of the same sub-array). Otherwise, the returned function should return false.
 
-console.log('%cCHALLENGE 17', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 17', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function makeFuncTester(arrOfTests) {
   function isSame(func) {
@@ -583,7 +583,7 @@ console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
 console.log('%cDescription: should console.log(true)', "color:yellow; font-size: 16px")
 console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 18
 
@@ -594,7 +594,7 @@ console.log('-----------------------------------')
 // deleted string with the word 'undone' after (separated by a space). If 'undo' is passed into the function and the function's history is empty, 
 // then the function should return the string 'nothing to undo'.
 
-console.log('%cCHALLENGE 18', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 18', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function makeHistory(limit) {
   var memory = [];
@@ -631,7 +631,7 @@ console.log(myActions('undo')); // => should log 'code undone'
 console.log('%cDescription: should console.log("nothing to undo")', "color:yellow; font-size: 16px")
 console.log(myActions('undo')); // => should log 'nothing to undo'
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
 
 // CHALLENGE 19
 
@@ -658,7 +658,7 @@ console.log('-----------------------------------')
 // BONUS: Implement blackjack so the DEALER function can return more PLAYER functions that will each continue to take the next number
 //  in the array after the previous PLAYER function left off. You will just need to make sure the array has enough numbers for all the PLAYER functions.
 
-console.log('%cCHALLENGE 19', "color:green; font-size: 20px");
+console.log('%cCHALLENGE 19', "color:green; font-size: 20px; border: 2px solid green; padding: 8px; margin: 5px 0;");
 
 function blackjack(array) {
   var dealerCount = 0;
@@ -689,7 +689,7 @@ const deal = blackjack([2, 6, 1, 7, 11, 4, 6, 3, 9, 8, 9, 3, 10, 4, 5, 3, 7, 4, 
 
 /*** PLAYER 1 ***/
 const i_like_to_live_dangerously = deal(4, 5);
-console.log('%cPLAYER 1', "color:orange; font-size: 18px")
+console.log('%cPLAYER 1', "color:orange; font-size: 18px; border: 1px solid orange; padding: 8px; margin: 5px 0;")
 console.log('%cDescription: should console.log(9)', "color:yellow; font-size: 16px")
 console.log(i_like_to_live_dangerously()); // => should log 9
 console.log('%cDescription: should console.log(11)', "color:yellow; font-size: 16px")
@@ -706,7 +706,7 @@ console.log('%cDescription: should console.log("you are done!")', "color:yellow;
 console.log(i_like_to_live_dangerously()); // => should log 'you are done!'
 
 /*** PLAYER 2 ***/
-console.log('%cPLAYER 2', "color:orange; font-size: 18px")
+console.log('%cPLAYER 2', "color:orange; font-size: 18px; border: 1px solid orange; padding: 8px; margin: 5px 0;")
 
 const i_TOO_like_to_live_dangerously = deal(2, 2);
 console.log('%cDescription: should console.log(4)', "color:yellow; font-size: 16px")
@@ -723,7 +723,7 @@ console.log('%cDescription: should console.log("you are done!")', "color:yellow;
 console.log(i_TOO_like_to_live_dangerously()); // => should log 'you are done!
 
 /*** PLAYER 3 ***/
-console.log('%cPLAYER 3', "color:orange; font-size: 18px")
+console.log('%cPLAYER 3', "color:orange; font-size: 18px; border: 1px solid orange; padding: 8px; margin: 5px 0;")
 
 const i_ALSO_like_to_live_dangerously = deal(3, 7);
 console.log('%cDescription: should console.log(10)', "color:yellow; font-size: 16px")
@@ -737,4 +737,4 @@ console.log(i_ALSO_like_to_live_dangerously()); // => should log 'you are done!
 console.log('%cDescription: should console.log("you are done!")', "color:yellow; font-size: 16px")
 console.log(i_ALSO_like_to_live_dangerously()); // => should log 'you are done!
 
-console.log('-----------------------------------')
+console.log('%c--------------------------------------------------------------------------------------------------------------------------------------------', 'color: orange; font-weight: bold')
