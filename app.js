@@ -220,6 +220,7 @@ console.log(multBy2AndLog(2)); // => should log 4
 console.log(multBy2AndLog(9)); // => should log 18
 console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 
+console.log('-----------------------------------')
 
 // CHALLENGE 9
 
@@ -229,106 +230,232 @@ console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 // return the first element of the array again, and continue on with the second after that, and so forth.
 
 function cycleIterator(array) {
+  var counter = 0;
+
+  function repeatCycle() {
+    if (counter >= array.length) {
+      counter = 0;
+    }
+    counter++;
+    return array[counter - 1];
+  }
+  return repeatCycle;
 
 }
 
 // /*** Uncomment these to check your work! ***/
-// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-// const getDay = cycleIterator(threeDayWeekend);
-// console.log(getDay()); // => should log 'Fri'
-// console.log(getDay()); // => should log 'Sat'
-// console.log(getDay()); // => should log 'Sun'
-// console.log(getDay()); // => should log 'Fri'
+const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+const getDay = cycleIterator(threeDayWeekend);
+console.log(getDay()); // => should log 'Fri'
+console.log(getDay()); // => should log 'Sat'
+console.log(getDay()); // => should log 'Sun'
+console.log(getDay()); // => should log 'Fri'
+console.log(getDay()); // => should log 'Sat'
 
+console.log('-----------------------------------')
 
 // CHALLENGE 10
-function defineFirstArg(func, arg) {
 
+// Create a function defineFirstArg that accepts a function and an argument. Also, the function being passed in will accept at least one argument. 
+// defineFirstArg will return a new function that invokes the passed-in function with the passed-in argument as the passed-in function's first argument. 
+// Additional arguments needed by the passed-in function will need to be passed into the returned function.
+
+function defineFirstArg(func, arg) {
+  function passedFunction(secondArg) {
+    return func(arg, secondArg)
+  }
+  return passedFunction;
 }
 
-// /*** Uncomment these to check your work! ***/
-// const subtract = function(big, small) { return big - small; };
-// const subFrom20 = defineFirstArg(subtract, 20);
-// console.log(subFrom20(5)); // => should log 15
+const subtract = function (big, small) {
+  return big - small;
+};
+const subFrom20 = defineFirstArg(subtract, 20);
+console.log(subFrom20(5)); // => should log 15
+console.log(subFrom20(21)); // => should log -1
 
+console.log('-----------------------------------')
 
 // CHALLENGE 11
-function dateStamp(func) {
 
+// Create a function dateStamp that accepts a function and returns a function. The returned function will accept however many arguments 
+// the passed-in function accepts, and return an object with a date key that contains a timestamp with the time of invocation, and an 
+// output key that contains the result from invoking the passed-in function. HINT: You may need to research how to access information on Date objects.
+
+function dateStamp(func) {
+  function returnDateObj(n) {
+    var obj = {};
+    var date = new Date();
+    var result = func(n);
+    obj['date'] = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    obj['output'] = result;
+    return obj;
+  }
+  return returnDateObj;
 }
 
-// /*** Uncomment these to check your work! ***/
-// const stampedMultBy2 = dateStamp(n => n * 2);
-// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
-// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
+/*** Uncomment these to check your work! ***/
+const stampedMultBy2 = dateStamp(n => n * 2);
+console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
+console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
+console.log('-----------------------------------')
 
 // CHALLENGE 12
-function censor() {
 
+// Create a function censor that accepts no arguments. censor will return a function that will accept either two strings, or one string. 
+// When two strings are given, the returned function will hold onto the two strings as a pair, for future use. When one string is given, 
+// the returned function will return the same string, except all instances of first strings (of saved pairs) will be replaced with their 
+// corresponding second strings (of those saved pairs).
+
+function censor() {
+  const obj = {};
+
+  function replaceStrings(arg1, arg2) {
+    if (arg2) {
+      obj[arg1] = arg2;
+    } else {
+      var newString = arg1;
+      console.log('Saved paired object', obj)
+      for (var key in obj) {
+        if (newString.includes(key)) {
+          newString = newString.replaceAll(key, obj[key]);
+        }
+      }
+      return newString;
+    }
+  }
+  return replaceStrings;
 }
 
-// /*** Uncomment these to check your work! ***/
-// const changeScene = censor();
-// changeScene('dogs', 'cats');
-// changeScene('quick', 'slow');
-// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+const changeScene = censor();
+changeScene('dogs', 'cats');
+changeScene('quick', 'slow');
+changeScene('brown', 'yellow');
 
+console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+
+console.log('-----------------------------------')
 
 // CHALLENGE 13
-function createSecretHolder(secret) {
 
+// There's no such thing as private properties on a JavaScript object! But, maybe there are? Implement a function createSecretHolder(secret)
+// which accepts any value as secret and returns an object with ONLY two methods. getSecret() which returns the secret setSecret() which sets the secret
+
+function createSecretHolder(secret) {
+	var privateSecret = secret;
+  function getSecret() {
+    console.log(privateSecret)
+    return privateSecret;
+  }
+  function setSecret(n) {
+    privateSecret = n;
+  }
+  var returnedObj = {
+    getSecret: getSecret,
+    setSecret: setSecret
+  }
+	return returnedObj;
 }
 
-// /*** Uncomment these to check your work! ***/
-// obj = createSecretHolder(5)
-// obj.getSecret() // => returns 5
-// obj.setSecret(2)
-// obj.getSecret() // => returns 2
+var obj = createSecretHolder(5)
+obj.getSecret() // => returns 5
+obj.setSecret(2)
+obj.getSecret() // => returns 2
+obj.setSecret(15)
+obj.getSecret() // => returns 15
 
+console.log('-----------------------------------')
 
 // CHALLENGE 14
-function callTimes() {
 
+// Write a function, callTimes, that returns a new function. The new function should return the number of times it’s been called.
+
+function callTimes() {
+	var counter = 0;
+  function returnHowManyTimes() {
+    counter++;
+    console.log('Counter: ', counter)
+    return counter;
+  }
+  return returnHowManyTimes;
 }
 
-// /*** Uncomment these to check your work! ***/
-// let myNewFunc1 = callTimes();
-// let myNewFunc2 = callTimes();
-// myNewFunc1(); // => 1
-// myNewFunc1(); // => 2
-// myNewFunc2(); // => 1
-// myNewFunc2(); // => 2
+let myNewFunc1 = callTimes();
+let myNewFunc2 = callTimes();
+myNewFunc1(); // => 1
+myNewFunc1(); // => 2
+myNewFunc2(); // => 1
+myNewFunc2(); // => 2
 
+console.log('-----------------------------------')
 
 // CHALLENGE 15
-function roulette(num) {
 
+// Create a function roulette that accepts a number (let us call it n), and returns a function. The returned function will 
+// take no arguments, and will return the string 'spin' the first n - 1 number of times it is invoked. On the very next invocation 
+// (the nth invocation), the returned function will return the string 'win'. On every invocation after that, the returned function 
+// returns the string 'pick a number to play again'.
+
+function roulette(num) {
+	var counter = 0;
+  function spinAgain() {
+    counter++;
+    var log = '';
+    if(counter < num) {
+      log = 'spin'
+    } else if(counter == num) {
+      log = 'win'
+    } else {
+			log = 'pick a number to play again'
+    }
+    return log;
+  }
+  return spinAgain;
 }
 
-// /*** Uncomment these to check your work! ***/
-// const play = roulette(3);
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'win'
-// console.log(play()); // => should log 'pick a number to play again'
-// console.log(play()); // => should log 'pick a number to play again'
+const play = roulette(3);
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'win'
+console.log(play()); // => should log 'pick a number to play again'
+console.log(play()); // => should log 'pick a number to play again'
 
+console.log('-----------------------------------')
 
 // CHALLENGE 16
-function average() {
+// Create a function average that accepts no arguments, and returns a function (that will accept either a number as 
+// its lone argument, or no arguments at all). When the returned function is invoked with a number, the output 
+// should be average of all the numbers have ever been passed into that function (duplicate numbers count just 
+// like any other number). When the returned function is invoked with no arguments, the current average is outputted. 
+// If the returned function is invoked with no arguments before any numbers are passed in, then it should return 0.
 
+function average() {
+  var counter = 0;
+  var currValue = 0;
+  function avgSoFar(arg) {
+    if(arg) {
+      counter++;
+      currValue += arg;
+    } else {
+      if (counter == 0) {
+        return counter;
+      }
+    }
+    return currValue/counter;
+  }
+  return avgSoFar;
 }
 
-// /*** Uncomment these to check your work! ***/
-// const avgSoFar = average();
-// console.log(avgSoFar()); // => should log 0
-// console.log(avgSoFar(4)); // => should log 4
-// console.log(avgSoFar(8)); // => should log 6
-// console.log(avgSoFar()); // => should log 6
-// console.log(avgSoFar(12)); // => should log 8
-// console.log(avgSoFar()); // => should log 8
+const avgSoFar = average();
+console.log(avgSoFar()); // => should log 0
+console.log(avgSoFar(4)); // => should log 4
+console.log(avgSoFar(8)); // => should log 6
+console.log(avgSoFar()); // => should log 6
+console.log(avgSoFar(12)); // => should log 8
+console.log(avgSoFar()); // => should log 8
 
+console.log('-----------------------------------')
 
 // CHALLENGE 17
 function makeFuncTester(arrOfTests) {
